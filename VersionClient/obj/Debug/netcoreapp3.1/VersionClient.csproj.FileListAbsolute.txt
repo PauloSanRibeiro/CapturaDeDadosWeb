@@ -145,3 +145,5 @@ C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClientWeb\VersionClien
 C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClientWeb\VersionClient\obj\Debug\netcoreapp3.1\VersionClient.dll
 C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClientWeb\VersionClient\obj\Debug\netcoreapp3.1\VersionClient.pdb
 C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClientWeb\VersionClient\obj\Debug\netcoreapp3.1\VersionClient.genruntimeconfig.cache
+C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClientWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\Clients\Details.cshtml.g.cs
+C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClientWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\Clients\Edit.cshtml.g.cs
