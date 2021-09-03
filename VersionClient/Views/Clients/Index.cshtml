@@ -1,0 +1,67 @@
+﻿@model IEnumerable<VersionClient.Models.Client>
+@{
+    ViewData["Title"] = "Lista de Clientes";
+}
+
+<style>
+    tr {
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+    }
+</style>
+
+<h2 align="center">@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrlLogin)
+            </th>
+        </tr>
+    </thead>
+    <tbody >
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(ModelItem => item.IdClient)
+                </td>
+                <td>
+                    @Html.DisplayFor(ModelItem => item.NameClient)
+                </td>
+                <td>
+                    @Html.DisplayFor(ModelItem => item.UrlLogin)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdClient" class="btn btn-info">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdClient" class="btn btn-warning">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdClient" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<p>
+    <a asp-action="Create" class="btn btn-info">Cadastrar</a>
+</p>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
