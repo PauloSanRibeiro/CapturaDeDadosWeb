@@ -19,7 +19,7 @@ namespace VersionClient.Controllers
         public async Task<IActionResult> Index()
         {
 
-            return View(await _context.Client.ToListAsync());
+            return View(await _context.Client.OrderBy(x => x.NameClient).ToListAsync());
         }
 
         //GET: Clients/Create

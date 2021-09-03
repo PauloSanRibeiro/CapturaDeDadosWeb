@@ -18,7 +18,7 @@ namespace VersionClient.Services
 
         public async Task<List<Client>> FindAllAsync()
         {
-            return await _context.Client.ToListAsync();
+            return await _context.Client.OrderBy(x => x.NameClient).ToListAsync();
         }
 
         //Insert de cadastro cliente

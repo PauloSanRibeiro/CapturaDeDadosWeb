@@ -23,9 +23,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.IdClient)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.NameClient)
             </th>
             <th>
@@ -38,15 +35,12 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(ModelItem => item.IdClient)
-                </td>
-                <td>
                     @Html.DisplayFor(ModelItem => item.NameClient)
                 </td>
                 <td>
                     @Html.DisplayFor(ModelItem => item.UrlLogin)
                 </td>
-                <td>
+                <td align="right">
                     <a asp-action="Edit" asp-route-id="@item.IdClient" class="btn btn-info">Editar</a> |
                     <a asp-action="Details" asp-route-id="@item.IdClient" class="btn btn-warning">Detalhes</a> |
                     <a asp-action="Delete" asp-route-id="@item.IdClient" class="btn btn-danger">Excluir</a>
