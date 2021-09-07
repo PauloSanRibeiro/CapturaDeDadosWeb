@@ -115,5 +115,35 @@ namespace VersionClient.Controllers
         }
 
 
+        //GET: Client/Delete
+        public async Task<IActionResult> Delete(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var client = await _context.Client.FirstOrDefaultAsync(m => m.IdClient == id);
+            if (client == null)
+            {
+                return NotFound();
+            }
+
+            return View(client);
+        }
+
+        //POST: Client/Delete
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+
+            var client = await _context.Client.FindAsync(id);
+            _context.Client.Remove(client);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
