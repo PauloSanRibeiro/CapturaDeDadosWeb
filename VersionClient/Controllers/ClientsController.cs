@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VersionClient.Models;
+using System.IO;
 
 namespace VersionClient.Controllers
 {
@@ -34,6 +38,11 @@ namespace VersionClient.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdClient,NameClient,UrlLogin")] Client client)
         {
+            if (_context.Client.Any(c => c.NameClient == client.NameClient))
+            {
+                ModelState.AddModelError("Nome", $"Cliente já cadastrado");
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(client);
