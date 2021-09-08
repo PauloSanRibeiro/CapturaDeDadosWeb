@@ -36,6 +36,8 @@ namespace VersionClient
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+
             }
             else
             {

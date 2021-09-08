@@ -15,9 +15,22 @@ namespace VersionClient.Models
         [Required(ErrorMessage = "{0} obrigatório")]
         public string NameClient { get; set; }
 
-        [Display(Name = "Endereço de Acesso")]
-        [Required(ErrorMessage = "{0} obrigatório")]
-        public string UrlLogin { get; set; }
+        public UrlClient UrlClient { get; set; }
+        public int IdUrlClient { get; set; }
+
+        public Client(int idClient, string nameClient, UrlClient urlClient)
+        {
+            IdClient = idClient;
+            NameClient = nameClient;
+            UrlClient = urlClient;
+        }
+
+
+        /*[Display(Name = "Endereço de Acesso")]
+          [Required(ErrorMessage = "{0} obrigatório")]
+          public string UrlLogin { get; set; }*/
+
+
 
 
     }

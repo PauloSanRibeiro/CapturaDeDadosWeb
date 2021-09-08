@@ -23,14 +23,26 @@ namespace VersionClient.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("NameClient")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("UrlLogin")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("IdClient");
 
                     b.ToTable("Client");
+                });
+
+            modelBuilder.Entity("VersionClient.Models.UrlClient", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Version");
                 });
 #pragma warning restore 612, 618
         }
