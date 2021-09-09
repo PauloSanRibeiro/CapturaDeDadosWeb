@@ -7,6 +7,7 @@ namespace VersionClient.Models.ViewModels
 {
     public class ClientFormViewModel
     {
-
+        public Client Client { get; set; }
+        public UrlClient UrlClient { get; set; }
     }
 }

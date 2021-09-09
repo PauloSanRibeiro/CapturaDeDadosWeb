@@ -1,24 +1,26 @@
 ﻿@model VersionClient.Models.UrlClient
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Endereço de Acesso";
 }
 
-<h1>Details</h1>
+<h2 align="center">@ViewData["Title"]</h2>
+
+<hr />
 
 <div>
-    <h4>UrlClient</h4>
-    <hr />
+
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Address)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Address)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.IdUrlClient">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.IdUrlClient" class="btn btn-success">Editar</a>
+    <a asp-action="Index" class="btn btn-info">Voltar</a>
+
 </div>

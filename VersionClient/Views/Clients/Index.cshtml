@@ -3,20 +3,6 @@
     ViewData["Title"] = "Lista de Clientes";
 }
 
-<style>
-    tr {
-        text-align: center;
-    }
-
-    th {
-        text-align: center;
-    }
-
-    td {
-        text-align: center;
-    }
-</style>
-
 <h2 align="center">@ViewData["Title"]</h2>
 
 <table class="table">
@@ -25,13 +11,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.NameClient)
             </th>
+
             @*
                 <th>
                     @Html.DisplayNameFor(model => model.UrlLogin)
                 </th>*@
-            <th>
-                Opções
-            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -41,6 +26,7 @@
                 <td>
                     @Html.DisplayFor(ModelItem => item.NameClient)
                 </td>
+
                 @*<td>
                         @Html.DisplayFor(ModelItem => item.UrlLogin)
                     </td>*@

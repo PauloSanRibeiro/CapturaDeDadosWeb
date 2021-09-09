@@ -53,8 +53,12 @@ namespace VersionClient.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Address")] UrlClient urlClient)
+        public async Task<IActionResult> Create([Bind("IdUrlClient,Address")] UrlClient urlClient)
         {
+            if (_context.Version.Any(v => v.Address == urlClient.Address))
+            {
+                ModelState.AddModelError("Address", "Endereço já cadastrado");
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(urlClient);
@@ -85,7 +89,7 @@ namespace VersionClient.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Address")] UrlClient urlClient)
+        public async Task<IActionResult> Edit(int id, [Bind("IdUrlClient,Address")] UrlClient urlClient)
         {
             if (id != urlClient.IdUrlClient)
             {
