@@ -479,11 +479,6 @@ C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClient\obj\Debug\netco
 C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\UrlClients\Details.cshtml.g.cs
 C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\UrlClients\Edit.cshtml.g.cs
 C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\UrlClients\Index.cshtml.g.cs
-D:\Projects\VersionClientWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\UrlClients\Create.cshtml.g.cs
-D:\Projects\VersionClientWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\UrlClients\Delete.cshtml.g.cs
-D:\Projects\VersionClientWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\UrlClients\Details.cshtml.g.cs
-D:\Projects\VersionClientWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\UrlClients\Edit.cshtml.g.cs
-D:\Projects\VersionClientWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\UrlClients\Index.cshtml.g.cs
 D:\Projects\VersionClientWeb\VersionClient\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
 D:\Projects\VersionClientWeb\VersionClient\bin\Debug\netcoreapp3.1\EntityFramework.dll
 D:\Projects\VersionClientWeb\VersionClient\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
@@ -511,3 +506,4 @@ D:\Projects\VersionClientWeb\VersionClient\bin\Debug\netcoreapp3.1\runtimes\win\
 D:\Projects\VersionClientWeb\VersionClient\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Projects\VersionClientWeb\VersionClient\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Projects\VersionClientWeb\VersionClient\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Projects\VersionClientWeb\VersionClient\bin\Debug\netcoreapp3.1\HtmlAgilityPack.NetCore.dll

@@ -17,6 +17,7 @@
 	<ItemGroup>
 		<PackageReference Include="EntityFramework" Version="6.4.4" />
 		<PackageReference Include="HtmlAgilityPack" Version="1.11.36" />
+		<PackageReference Include="HtmlAgilityPack.NetCore" Version="1.5.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.2" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.15" />

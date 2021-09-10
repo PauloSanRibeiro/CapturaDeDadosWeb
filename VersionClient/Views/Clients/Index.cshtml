@@ -11,11 +11,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.NameClient)
             </th>
-
-            @*
-                <th>
-                    @Html.DisplayNameFor(model => model.UrlLogin)
-                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.UrlLogin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Versions)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -27,10 +28,12 @@
                     @Html.DisplayFor(ModelItem => item.NameClient)
                 </td>
 
-                @*<td>
-                        @Html.DisplayFor(ModelItem => item.UrlLogin)
-                    </td>*@
-
+                <td>
+                    @Html.DisplayFor(ModelItem => item.UrlLogin)
+                </td>
+                <td>
+                    @Html.DisplayFor(ModelItem => item.Versions)
+                </td>
                 <td align="right">
                     <a asp-action="Edit" asp-route-id="@item.IdClient" class="btn btn-info">Editar</a> |
                     <a asp-action="Details" asp-route-id="@item.IdClient" class="btn btn-warning">Detalhes</a> |

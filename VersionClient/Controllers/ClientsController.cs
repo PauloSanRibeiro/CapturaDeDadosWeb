@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VersionClient.Models;
-using System.IO;
+using System.Net.Http;
+using HtmlAgilityPack;
 
 namespace VersionClient.Controllers
 {
@@ -22,6 +20,7 @@ namespace VersionClient.Controllers
 
         public async Task<IActionResult> Index()
         {
+
 
             return View(await _context.Client.OrderBy(x => x.NameClient).ToListAsync());
         }

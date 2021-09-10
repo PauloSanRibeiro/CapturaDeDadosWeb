@@ -9,7 +9,7 @@ using VersionClient.Models;
 namespace VersionClient.Migrations
 {
     [DbContext(typeof(VersionContext))]
-    [Migration("20210908232304_Initial")]
+    [Migration("20210910021407_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,42 +25,43 @@ namespace VersionClient.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("IdUrlClient")
-                        .HasColumnType("int");
-
                     b.Property<string>("NameClient")
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int?>("UrlClientIdUrlClient")
-                        .HasColumnType("int");
+                    b.Property<string>("UrlLogin")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("IdClient");
-
-                    b.HasIndex("UrlClientIdUrlClient");
 
                     b.ToTable("Client");
                 });
 
-            modelBuilder.Entity("VersionClient.Models.UrlClient", b =>
+            modelBuilder.Entity("VersionClient.Models.Version", b =>
                 {
-                    b.Property<int>("IdUrlClient")
+                    b.Property<int>("IdVersion")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.HasKey("IdUrlClient");
+                    b.Property<int?>("ClientIdClient")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdVersion");
+
+                    b.HasIndex("ClientIdClient");
 
                     b.ToTable("Version");
                 });
 
-            modelBuilder.Entity("VersionClient.Models.Client", b =>
+            modelBuilder.Entity("VersionClient.Models.Version", b =>
                 {
-                    b.HasOne("VersionClient.Models.UrlClient", "UrlClient")
-                        .WithMany()
-                        .HasForeignKey("UrlClientIdUrlClient");
+                    b.HasOne("VersionClient.Models.Client", null)
+                        .WithMany("Versions")
+                        .HasForeignKey("ClientIdClient");
                 });
 #pragma warning restore 612, 618
         }
