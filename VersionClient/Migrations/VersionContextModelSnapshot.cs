@@ -31,6 +31,9 @@ namespace VersionClient.Migrations
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<string>("Versions")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.HasKey("IdClient");
 
                     b.ToTable("Client");
@@ -52,13 +55,13 @@ namespace VersionClient.Migrations
 
                     b.HasIndex("ClientIdClient");
 
-                    b.ToTable("Version");
+                    b.ToTable("Versions");
                 });
 
             modelBuilder.Entity("VersionClient.Models.Version", b =>
                 {
                     b.HasOne("VersionClient.Models.Client", "Client")
-                        .WithMany("Versions")
+                        .WithMany()
                         .HasForeignKey("ClientIdClient");
                 });
 #pragma warning restore 612, 618

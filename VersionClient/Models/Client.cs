@@ -24,20 +24,7 @@ namespace VersionClient.Models
         [Required(ErrorMessage = "{0} obrigatório")]
         public string UrlLogin { get; set; }
 
-        public ICollection<Version> Versions { get; set; }
-
-        public void AddVersion(Version version)
-        {
-            Versions.Add(version);
-
-
-        }
-
-        /*            var urlClient = new HtmlWeb().Load(UrlLogin);
-
-            var resultVersion = urlClient.DocumentNode.Descendants().Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("vmx-login-versao"));*/
-
-
+        public string Versions { get; set; }
 
     }
 }

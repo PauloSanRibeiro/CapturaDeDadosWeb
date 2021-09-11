@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 using VersionClient.Models;
 using System.Net.Http;
 using HtmlAgilityPack;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace VersionClient.Controllers
 {
     public class ClientsController : Controller
     {
         private readonly VersionContext _context;
-
+        private const int _quantMaxLinhasPorPagina = 5;
         public ClientsController(VersionContext context)
         {
             _context = context;
@@ -20,7 +21,7 @@ namespace VersionClient.Controllers
 
         public async Task<IActionResult> Index()
         {
-
+            ViewBag.ListaTamPag = new SelectList(new int[] { _quantMaxLinhasPorPagina, 10, 15, 20 }, _quantMaxLinhasPorPagina);
 
             return View(await _context.Client.OrderBy(x => x.NameClient).ToListAsync());
         }

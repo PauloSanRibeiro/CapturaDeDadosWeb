@@ -14,7 +14,8 @@ namespace VersionClient.Migrations
                     IdClient = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     NameClient = table.Column<string>(nullable: false),
-                    UrlLogin = table.Column<string>(nullable: false)
+                    UrlLogin = table.Column<string>(nullable: false),
+                    Versions = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -22,7 +23,7 @@ namespace VersionClient.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Version",
+                name: "Versions",
                 columns: table => new
                 {
                     IdVersion = table.Column<int>(nullable: false)
@@ -32,9 +33,9 @@ namespace VersionClient.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Version", x => x.IdVersion);
+                    table.PrimaryKey("PK_Versions", x => x.IdVersion);
                     table.ForeignKey(
-                        name: "FK_Version_Client_ClientIdClient",
+                        name: "FK_Versions_Client_ClientIdClient",
                         column: x => x.ClientIdClient,
                         principalTable: "Client",
                         principalColumn: "IdClient",
@@ -42,15 +43,15 @@ namespace VersionClient.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Version_ClientIdClient",
-                table: "Version",
+                name: "IX_Versions_ClientIdClient",
+                table: "Versions",
                 column: "ClientIdClient");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Version");
+                name: "Versions");
 
             migrationBuilder.DropTable(
                 name: "Client");

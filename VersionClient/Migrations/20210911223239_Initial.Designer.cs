@@ -9,7 +9,7 @@ using VersionClient.Models;
 namespace VersionClient.Migrations
 {
     [DbContext(typeof(VersionContext))]
-    [Migration("20210910021407_Initial")]
+    [Migration("20210911223239_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,9 @@ namespace VersionClient.Migrations
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<string>("Versions")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.HasKey("IdClient");
 
                     b.ToTable("Client");
@@ -54,13 +57,13 @@ namespace VersionClient.Migrations
 
                     b.HasIndex("ClientIdClient");
 
-                    b.ToTable("Version");
+                    b.ToTable("Versions");
                 });
 
             modelBuilder.Entity("VersionClient.Models.Version", b =>
                 {
-                    b.HasOne("VersionClient.Models.Client", null)
-                        .WithMany("Versions")
+                    b.HasOne("VersionClient.Models.Client", "Client")
+                        .WithMany()
                         .HasForeignKey("ClientIdClient");
                 });
 #pragma warning restore 612, 618

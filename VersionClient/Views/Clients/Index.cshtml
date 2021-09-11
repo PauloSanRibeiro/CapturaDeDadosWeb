@@ -5,8 +5,11 @@
 
 <h2 align="center">@ViewData["Title"]</h2>
 
+
+
+
 <table class="table">
-    <thead>
+    <thead align="center">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.NameClient)
@@ -15,12 +18,12 @@
                 @Html.DisplayNameFor(model => model.UrlLogin)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Versions)
+                Versão
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody align="center">
         @foreach (var item in Model)
         {
             <tr>
@@ -31,9 +34,21 @@
                 <td>
                     @Html.DisplayFor(ModelItem => item.UrlLogin)
                 </td>
-                <td>
-                    @Html.DisplayFor(ModelItem => item.Versions)
-                </td>
+                @{
+
+                    var docVersion = new HtmlAgilityPack.HtmlWeb().Load(item.UrlLogin);
+                    var version = docVersion.DocumentNode.Descendants().Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("vmx-login-versao"));
+
+                    foreach (var ver in version)
+                    {
+                        var versao = ver.InnerText;
+
+                        <td>
+                            @versao.Substring(8)
+                        </td>
+
+                    }
+                }
                 <td align="right">
                     <a asp-action="Edit" asp-route-id="@item.IdClient" class="btn btn-info">Editar</a> |
                     <a asp-action="Details" asp-route-id="@item.IdClient" class="btn btn-warning">Detalhes</a> |
@@ -47,9 +62,11 @@
 
 <p>
     <a asp-action="Create" class="btn btn-success">Cadastrar</a>
+    @Html.DropDownList("ddl_tam_pg", (SelectList)ViewBag.ListaTamPag, new { @class = "selectpicker" })
 </p>
 
-
 @section Scripts {
+    
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
