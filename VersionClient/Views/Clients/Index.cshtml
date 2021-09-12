@@ -8,9 +8,9 @@
 
 
 
-<table class="table">
+<table id="myTable" class="table">
     <thead align="center">
-        <tr>
+        <tr class="table-in">
             <th>
                 @Html.DisplayNameFor(model => model.NameClient)
             </th>
@@ -62,11 +62,21 @@
 
 <p>
     <a asp-action="Create" class="btn btn-success">Cadastrar</a>
-    @Html.DropDownList("ddl_tam_pg", (SelectList)ViewBag.ListaTamPag, new { @class = "selectpicker" })
+    @*    @Html.DropDownList("ddl_tam_pg", (SelectList)ViewBag.ListaTamPag, new { @class = "selectpicker" })*@
 </p>
 
-@section Scripts {
-    
 
+@section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json"
+                }
+            });
+        });
+    </script>
 }
+

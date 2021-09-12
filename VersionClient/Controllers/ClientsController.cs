@@ -21,7 +21,7 @@ namespace VersionClient.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewBag.ListaTamPag = new SelectList(new int[] { _quantMaxLinhasPorPagina, 10, 15, 20 }, _quantMaxLinhasPorPagina);
+            //ViewBag.ListaTamPag = new SelectList(new int[] { _quantMaxLinhasPorPagina, 10, 15, 20 }, _quantMaxLinhasPorPagina);
 
             return View(await _context.Client.OrderBy(x => x.NameClient).ToListAsync());
         }
