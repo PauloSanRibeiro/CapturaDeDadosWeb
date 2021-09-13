@@ -10,7 +10,7 @@ namespace VersionClient.Models
         }
 
         public DbSet<Client> Client { get; set; }
-        public DbSet<Version> Versions { get; set; }
+
 
     }
 }
