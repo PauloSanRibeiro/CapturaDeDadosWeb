@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using VersionClient.Models;
 
@@ -25,6 +26,10 @@ namespace VersionClient
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) =>
+            {
+                return true;
+            };
 
             services.AddDbContext<VersionContext>(options => options.UseMySql(Configuration.GetConnectionString("VersionContext"), builder => builder.MigrationsAssembly("VersionClient")));
             services.AddControllersWithViews();

@@ -1,12 +1,10 @@
 ﻿@model IEnumerable<VersionClient.Models.Client>
+
 @{
     ViewData["Title"] = "Lista de Clientes";
 }
-
+<hr >
 <h2 align="center">@ViewData["Title"]</h2>
-
-
-
 
 <table id="myTable" class="table">
     <thead align="center">
@@ -37,6 +35,7 @@
                 @{
 
                     var docVersion = new HtmlAgilityPack.HtmlWeb().Load(item.UrlLogin);
+                    
                     var version = docVersion.DocumentNode.Descendants().Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("vmx-login-versao"));
 
                     foreach (var ver in version)
