@@ -5,6 +5,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Publish\**" />
+	  <Content Remove="Publish\**" />
+	  <EmbeddedResource Remove="Publish\**" />
+	  <None Remove="Publish\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<_WebToolingArtifacts Remove="Properties\serviceDependencies.json" />
 		<_WebToolingArtifacts Remove="Properties\serviceDependencies.local.json" />
 	</ItemGroup>

@@ -14,6 +14,7 @@ namespace VersionClient.Controllers
     {
         private readonly VersionContext _context;
         private const int _quantMaxLinhasPorPagina = 5;
+
         public ClientsController(VersionContext context)
         {
             _context = context;
