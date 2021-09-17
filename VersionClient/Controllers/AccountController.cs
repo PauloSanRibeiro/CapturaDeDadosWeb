@@ -92,7 +92,7 @@ namespace VersionClient.Controllers
                 }
                 ModelState.AddModelError(string.Empty, "Login Inválido");
             }
-            return View();
+            return View(user);
         }
 
         public async Task<IActionResult> Logout()

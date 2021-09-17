@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Version Client</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap_cerulean.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/darkly_bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/lib/bootstrap/dist/css/bootstrap-select.css" rel="stylesheet" />
     <link href="//cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css" rel="stylesheet" />
@@ -19,11 +19,12 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <ul class="navbar-nav mr-auto bg-danger">
-
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"></a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Clients" asp-action="Index"></a>
                             </li>
@@ -34,11 +35,7 @@
                     }
                     else
                     {
-
                         <ul class="navbar-nav navbar-dark">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"></a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Login</a>
                             </li>

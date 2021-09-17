@@ -485,7 +485,6 @@ C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClient\obj\Debug\netco
 C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClient\obj\Debug\netcoreapp3.1\VersionClient.TagHelpers.input.cache
 C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClient\obj\Debug\netcoreapp3.1\VersionClient.TagHelpers.output.cache
 C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClient\obj\Debug\netcoreapp3.1\VersionClient.RazorCoreGenerate.cache
-C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
 C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\Clients\Create.cshtml.g.cs
 C:\Users\wikihow2\Documents\Paulo\ClientVersionWeb\VersionClient\obj\Debug\netcoreapp3.1\Razor\Views\Clients\Delete.cshtml.g.cs
