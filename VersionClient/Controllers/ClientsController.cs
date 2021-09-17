@@ -7,6 +7,7 @@ using VersionClient.Models;
 using System.Net.Http;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VersionClient.Controllers
 {
@@ -20,6 +21,7 @@ namespace VersionClient.Controllers
             _context = context;
         }
 
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             //ViewBag.ListaTamPag = new SelectList(new int[] { _quantMaxLinhasPorPagina, 10, 15, 20 }, _quantMaxLinhasPorPagina);
@@ -27,13 +29,14 @@ namespace VersionClient.Controllers
             return View(await _context.Client.OrderBy(x => x.NameClient).ToListAsync());
         }
 
+        [Authorize]
         //GET: Clients/Create
         public IActionResult Create()
         {
 
             return View();
         }
-
+        [Authorize]
         //POST: Clients/Create
         [HttpPost]
         [ValidateAntiForgeryToken]

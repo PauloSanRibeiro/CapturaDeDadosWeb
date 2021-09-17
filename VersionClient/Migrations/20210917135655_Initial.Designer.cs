@@ -9,7 +9,7 @@ using VersionClient.Models;
 namespace VersionClient.Migrations
 {
     [DbContext(typeof(VersionContext))]
-    [Migration("20210917031051_Initial")]
+    [Migration("20210917135655_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

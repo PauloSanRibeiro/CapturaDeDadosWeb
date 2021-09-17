@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using VersionClient.Models;
 
@@ -11,10 +12,15 @@ namespace VersionClient.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        private readonly ILogger<AccountController> _logger;
+
+
+
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _logger = logger;
         }
 
         public IActionResult Index()
@@ -45,8 +51,10 @@ namespace VersionClient.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    _logger.LogInformation("Cadastro realizado com sucesso!");
+                    return View();
                 }
 
                 foreach (var error in result.Errors)
@@ -61,17 +69,17 @@ namespace VersionClient.Controllers
         }
 
         //GET: Account/Login
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Login()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //[AllowAnonymous]
+        //public IActionResult Login()
+        //{
+        //    return View();
+        //}
 
         //POST: Account/Login
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginUser user, RegisterUser registerUser)
+        public async Task<IActionResult> Login(LoginUser user)
         {
             if (ModelState.IsValid)
             {
@@ -79,17 +87,19 @@ namespace VersionClient.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    _logger.LogInformation("Operador Conectado");
+                    return RedirectToAction("Index", "Clients");
                 }
                 ModelState.AddModelError(string.Empty, "Login Inválido");
             }
-            return View(registerUser);
+            return View();
         }
 
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Login");
+            _logger.LogInformation("Operador Desconectado");
+            return View();
         }
     }
 }
