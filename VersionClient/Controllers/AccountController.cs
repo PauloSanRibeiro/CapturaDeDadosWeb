@@ -6,12 +6,12 @@ using VersionClient.Models;
 
 namespace VersionClient.Controllers
 {
-    public class AccountsController : Controller
+    public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
 
-        public AccountsController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -57,7 +57,7 @@ namespace VersionClient.Controllers
                 ModelState.AddModelError(string.Empty, "Login Inválido");
             }
 
-            return View();
+            return View(model);
         }
 
         //GET: Account/Login
@@ -71,7 +71,7 @@ namespace VersionClient.Controllers
         //POST: Account/Login
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginUser user)
+        public async Task<IActionResult> Login(LoginUser user, RegisterUser registerUser)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace VersionClient.Controllers
                 }
                 ModelState.AddModelError(string.Empty, "Login Inválido");
             }
-            return View(user);
+            return View(registerUser);
         }
 
         public async Task<IActionResult> Logout()

@@ -4,7 +4,8 @@ namespace VersionClient.Models
 {
     public class LoginUser
     {
-        [Required]
+
+        [Required(ErrorMessage = "Informe {0} de Acesso")]
         [EmailAddress]
         [Display(Name = "E-mail")]
         public string Email { get; set; }

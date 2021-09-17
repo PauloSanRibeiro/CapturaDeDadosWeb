@@ -6,11 +6,13 @@ namespace VersionClient.Models
 {
     public class VersionContext : IdentityDbContext
     {
+        private readonly DbContextOptions _options;
 
 
-        public VersionContext(DbContextOptions<VersionContext> options) : base(options)
+
+        public VersionContext(DbContextOptions options) : base(options)
         {
-
+            _options = options;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -19,6 +21,10 @@ namespace VersionClient.Models
         }
 
         public DbSet<Client> Client { get; set; }
+        //public DbSet<LoginUser> LoginUsers { get; set; }
+        //public DbSet<RegisterUser> RegisterUsers { get; set; }
+
+
 
 
     }

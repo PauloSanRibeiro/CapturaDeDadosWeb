@@ -35,26 +35,27 @@ namespace VersionClient
             services.AddDbContext<VersionContext>(options => options.UseMySql(Configuration.GetConnectionString("VersionContext"), builder => builder.MigrationsAssembly("VersionClient")));
             services.AddControllersWithViews();
 
-            services.Configure<IdentityOptions>(options =>
-            {
-                //Passwd Configure
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequiredLength = 8;
-                options.Password.RequiredUniqueChars = 8;
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<VersionContext>();
+            //services.Configure<IdentityOptions>(options =>
+            //{
+            //    //Passwd Configure
+            //    options.Password.RequireDigit = true;
+            //    options.Password.RequireLowercase = true;
+            //    options.Password.RequiredLength = 8;
+            //    options.Password.RequiredUniqueChars = 8;
 
-            });
+            //});
 
-            services.ConfigureApplicationCookie(options =>
-            {
-                //Cookie Configure
-                options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+            //services.ConfigureApplicationCookie(options =>
+            //{
+            //    //Cookie Configure
+            //    options.Cookie.HttpOnly = true;
+            //    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
-                options.LoginPath = "/Account/Login";
-                options.AccessDeniedPath = "Account/Login";
+            //    options.LoginPath = "/Account/Login";
+            //    options.AccessDeniedPath = "Account/Login";
 
-            });
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,7 +79,6 @@ namespace VersionClient
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
